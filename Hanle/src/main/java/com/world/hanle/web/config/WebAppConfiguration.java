@@ -1,0 +1,111 @@
+package com.world.hanle.web.config;
+
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
+
+@Configuration
+@EnableWebMvc
+//@Import(ServicesConfiguration.class)
+@ComponentScan(basePackages={"com.world.hanle.web, com.world.hanle.services.model"})
+//@EnableHypermediaSupport(type = { null })
+public class WebAppConfiguration extends WebMvcConfigurerAdapter {
+	
+	@Bean
+	public MultipartResolver multipartResolver() {
+		return new StandardServletMultipartResolver();
+	}
+	
+	/*@Bean
+    public UrlBasedViewResolver urlBasedViewResolver() {
+		UrlBasedViewResolver urlBasedViewResolver = new TilesViewResolver();
+		urlBasedViewResolver.setViewClass(TilesView.class);
+		urlBasedViewResolver.setOrder(1);
+        return urlBasedViewResolver;
+    }
+	
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer tilesConfigurer = new TilesConfigurer();
+		tilesConfigurer.setDefinitions("/WEB-INF/tiles.xml");
+		tilesConfigurer.setCheckRefresh(true);
+		return tilesConfigurer;
+	}*/
+	
+//	@Bean
+//	public ServletContextTemplateResolver templateResolver() {
+//		ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
+//		resolver.setPrefix("/WEB-INF/views/");
+//		resolver.setSuffix(".jsp");
+//		resolver.setTemplateMode("HTML5");
+//		resolver.setCacheable(false);
+//		return resolver;
+//	}
+//	
+//	@Bean
+//	public ThymeleafViewResolver thymeleafViewResolver() {
+//		ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
+//		thymeleafViewResolver.setOrder(1);
+//		thymeleafViewResolver.setViewNames(new String[]{"*"});
+//		thymeleafViewResolver.setCache(false);
+//		
+//		SpringTemplateEngine springTemplateEngine =  new SpringTemplateEngine();
+//		springTemplateEngine.setTemplateResolver(templateResolver());
+//		thymeleafViewResolver.setTemplateEngine(springTemplateEngine);
+//		
+//		return thymeleafViewResolver;
+//	}
+	
+	
+    @Bean
+    public InternalResourceViewResolver internalResourceViewResolver() {
+        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+        internalResourceViewResolver.setViewClass(JstlView.class);
+        internalResourceViewResolver.setPrefix("/WEB-INF/views/");
+        internalResourceViewResolver.setSuffix(".jsp");
+        internalResourceViewResolver.setOrder(1);
+        return internalResourceViewResolver;
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        String[] baseNames = "messages".split(",");
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasenames(baseNames);
+        messageSource.setUseCodeAsDefaultMessage(true);
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+    
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        //registry.addViewController("/").setViewName("customers");
+    }
+    
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+}
