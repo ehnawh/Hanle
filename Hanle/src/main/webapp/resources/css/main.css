@@ -1,6 +1,8 @@
 @CHARSET "UTF-8";
 body {
-	padding-top:70px;
+	padding-top:60px;
+	font-size: 12px;
+	font-family: '나눔고딕', '맑은 고딕';
 }
 
 #sidebar-left {
@@ -21,4 +23,8 @@ body {
 	top: 0;
 	z-index: 1040;
 	display:none;
+}
+
+table tr, table th {
+	text-align: center;
 }

@@ -1,9 +1,5 @@
 package com.world.hanle.web.controller.view.contents;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -17,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/main")
 public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String main(HttpServletRequest request, Model model) {
 		return "main";
 	}

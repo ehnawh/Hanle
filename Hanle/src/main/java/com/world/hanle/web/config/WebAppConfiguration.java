@@ -5,10 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,15 +14,16 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 
 @Configuration
 @EnableWebMvc
 //@Import(ServicesConfiguration.class)
-@ComponentScan(basePackages={"com.world.hanle.web, com.world.hanle.services.model"})
+@ComponentScan(basePackages={"com.world.hanle.web.controller", "com.world.hanle.services.model"})
 //@EnableHypermediaSupport(type = { null })
 public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 	
@@ -33,7 +32,7 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 		return new StandardServletMultipartResolver();
 	}
 	
-	/*@Bean
+	@Bean
     public UrlBasedViewResolver urlBasedViewResolver() {
 		UrlBasedViewResolver urlBasedViewResolver = new TilesViewResolver();
 		urlBasedViewResolver.setViewClass(TilesView.class);
@@ -47,7 +46,7 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 		tilesConfigurer.setDefinitions("/WEB-INF/tiles.xml");
 		tilesConfigurer.setCheckRefresh(true);
 		return tilesConfigurer;
-	}*/
+	}
 	
 //	@Bean
 //	public ServletContextTemplateResolver templateResolver() {
@@ -77,10 +76,10 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-        internalResourceViewResolver.setViewClass(JstlView.class);
+//        internalResourceViewResolver.setViewClass(JstlView.class);
         internalResourceViewResolver.setPrefix("/WEB-INF/views/");
         internalResourceViewResolver.setSuffix(".jsp");
-        internalResourceViewResolver.setOrder(1);
+        internalResourceViewResolver.setOrder(2);
         return internalResourceViewResolver;
     }
 
