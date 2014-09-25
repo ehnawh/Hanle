@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 body {
-	padding-top:60px;
+	padding-top:70px;
+	padding-bottom:70px;
 	font-size: 12px;
 	font-family: '나눔고딕', '맑은 고딕';
 }
