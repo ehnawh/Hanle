@@ -43,8 +43,8 @@
             </ul>
             <form class="navbar-form navbar-left" role="search">
             	<div class="form-group">
-            		<input type="text" class="form-control" placeholder="검색어"/>
-            		<button type="submit" class="btn btn-default">찾기</button>
+            		<input type="text" class="form-control input-sm" placeholder="검색어"/>
+            		<button type="submit" class="btn btn-sm btn-default">찾기</button>
             	</div>
             </form>
             <div class="navbar-form navbar-right btn-group">

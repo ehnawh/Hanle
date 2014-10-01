@@ -145,6 +145,12 @@
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-extras</artifactId>
 			<version>3.0.3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>velocity-tools</artifactId>
+					<groupId>org.apache.velocity</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	
 		<!-- Test -->
