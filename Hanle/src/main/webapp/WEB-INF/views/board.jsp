@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" session="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
 <div class="row">
 	<div class="col-md-12">
 		<div class="page-header">
@@ -39,7 +39,7 @@
 				<td>1</td>
 			</tr>
 		</table>
-		<div>
+		<div class="text-center">
 			<ul class="pagination">
 				<li class="disabled"><a href="#"/>&laquo;</a></li>
 				<li class="active"><a href="#"/>1 <span class="sr-only">(current)</span></a></li>
