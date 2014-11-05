@@ -19,7 +19,7 @@ public class Content extends GenericModel {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Board getBoardId() {
+	public String getBoardId() {
 		return boardId;
 	}
 	public void setBoardId(String boardId) {
