@@ -1,10 +1,10 @@
 package com.world.hanle.services.model;
 
-public class Contents extends GenericModel {
+public class Content extends GenericModel {
 
 	private String title;
 	private String contents;
-	private Board board;
+	private String boardId;
 	private User author;
 	
 	public String getTitle() {
@@ -19,11 +19,11 @@ public class Contents extends GenericModel {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Board getBoard() {
-		return board;
+	public Board getBoardId() {
+		return boardId;
 	}
-	public void setBoard(Board board) {
-		this.board = board;
+	public void setBoardId(String boardId) {
+		this.boardId = boardId;
 	}
 	public User getAuthor() {
 		return author;

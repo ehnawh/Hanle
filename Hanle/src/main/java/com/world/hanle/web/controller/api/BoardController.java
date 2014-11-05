@@ -1,4 +1,4 @@
-package com.world.hanle.web.controller.view.contents;
+package com.world.hanle.web.controller.api;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,14 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/main")
-public class MainController {
+@RequestMapping("api/board")
+public class BoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String main(HttpServletRequest request, Model model) {
-		return "main";
+	public String list(HttpServletRequest request, Model model) {
+		return "board";
 	}
 	
+	@RequestMapping(value = "/contents", method = RequestMethod.GET)
+	public String contents(HttpServletRequest request, Model model) {
+		return "board_contents";
+	}
 }

@@ -28,7 +28,7 @@ import com.world.hanle.services.model.Board;
 import com.mysql.jdbc.Driver;
 
 @Configuration
-@Profile("default")
+@Profile("mysql")
 public class MysqlDataSourceConfiguration   {
 
 	@Autowired

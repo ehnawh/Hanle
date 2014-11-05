@@ -1,4 +1,4 @@
-package com.world.hanle.web.controller.view.contents;
+package com.world.hanle.web.controller.view;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -2,11 +2,21 @@ package com.world.hanle.services.model;
 
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 public class GenericModel {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	@NotNull
 	private String name;
+	@NotNull
 	private Date createdDate;
+	@NotNull
 	private Date modifiedDate;
 	
 	public Integer getId() {

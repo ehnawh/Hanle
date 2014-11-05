@@ -20,9 +20,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:/config.properties")
 @EnableCaching
 @EnableTransactionManagement
-@Import({MysqlDataSourceConfiguration.class})
-//@ComponentScan(basePackages = {"com.gabia.deployment.mvc.services.model", "com.gabia.deployment.mvc.services.remoteModel"})
-@ComponentScan(basePackages = {"com.gabia.deployment.mvc.services.model", "com.world.hanle.services.remoteModel", "com.gabia.deployment.mvc.services.service"})
+@Import({LocalDataSourceConfiguration.class, MysqlDataSourceConfiguration.class})
+@ComponentScan(basePackages = {"com.world.hanle.services.model", "com.gabia.deployment.mvc.services.service"})
 public class ServicesConfiguration {
 	public static final String UPLOADS_DIRECTORY = "/";
 
