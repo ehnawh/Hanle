@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
@@ -23,7 +24,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @Configuration
 @EnableWebMvc
 //@Import(ServicesConfiguration.class)
-@ComponentScan(basePackages={"com.world.hanle.web.controller", "com.world.hanle.services.model"})
+@ComponentScan(basePackages={"com.world.hanle.web.controller.view", "com.world.hanle.services.model"})
 //@EnableHypermediaSupport(type = { null })
 public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 	
@@ -76,7 +77,7 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-//        internalResourceViewResolver.setViewClass(JstlView.class);
+        internalResourceViewResolver.setViewClass(JstlView.class);
         internalResourceViewResolver.setPrefix("/WEB-INF/views/");
         internalResourceViewResolver.setSuffix(".jsp");
         internalResourceViewResolver.setOrder(2);

@@ -2,18 +2,16 @@ package com.world.hanle.web.initializer;
 
 
 import javax.servlet.Filter;
+import javax.servlet.ServletContext;
 
 import org.springframework.core.annotation.Order;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import com.world.hanle.web.config.WebAppConfiguration;
-
-//import com.world.hanle.services.config.ServicesConfiguration;
-//import com.world.hanle.web.config.WebSecurityConfiguration;
-//import com.world.hanle.web.config.WebSocketConfiguration;
 
 @Order(1)
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -43,17 +41,17 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		return new Filter[] { /*new OpenEntityManagerInViewFilter(),*/ new HiddenHttpMethodFilter(), characterEncodingFilter, new MultipartFilter()};
 	}
 	
-/*	@Override
+	@Override
 	protected void registerDispatcherServlet(ServletContext servletContext) {
 		super.registerDispatcherServlet(servletContext);
 		servletContext.addListener(new HttpSessionEventPublisher());
-	}*/
+	}
 	
-/*	@Override
-	protected void customizeRegistration(ServletRegistration.Dynamic registration) { 
-		File uploadDirectory = new File(ServicesConfiguration.UPLOADS_DIRECTORY);
-		MultipartConfigElement multipartConfigElement = new MultipartConfigElement(uploadDirectory.getAbsolutePath(), maxuploadSizeInMb, maxuploadSizeInMb * 2, maxuploadSizeInMb);
-		
-		registration.setMultipartConfig(multipartConfigElement);
-	}*/
+//	@Override
+//	protected void customizeRegistration(ServletRegistration.Dynamic registration) { 
+//		File uploadDirectory = new File(ServicesConfiguration.UPLOADS_DIRECTORY);
+//		MultipartConfigElement multipartConfigElement = new MultipartConfigElement(uploadDirectory.getAbsolutePath(), maxuploadSizeInMb, maxuploadSizeInMb * 2, maxuploadSizeInMb);
+//		
+//		registration.setMultipartConfig(multipartConfigElement);
+//	}
 }

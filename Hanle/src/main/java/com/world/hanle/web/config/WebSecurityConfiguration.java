@@ -16,9 +16,9 @@ import org.springframework.security.web.access.ExceptionTranslationFilter;
 import com.world.hanle.services.service.LoginService;
 import com.world.hanle.web.security.SessionTimeoutFilter;
 
-@Configuration
-@EnableWebSecurity
-@ComponentScan(basePackages={"com.gabia.deployment.mvc.services.service"})
+//@Configuration
+//@EnableWebSecurity
+//@ComponentScan(basePackages={"com.gabia.deployment.mvc.services.service"})
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -69,7 +69,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.and()
 			.rememberMe()
 				.and()
-			.addFilterAfter(new SessionTimeoutFilter(), ExceptionTranslationFilter.class)
+//			.addFilterAfter(new SessionTimeoutFilter(), ExceptionTranslationFilter.class)
 			.sessionManagement().maximumSessions(3*60*60);
 	}
 }
