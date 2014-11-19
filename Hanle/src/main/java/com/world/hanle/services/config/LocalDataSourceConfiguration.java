@@ -22,6 +22,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import com.world.hanle.services.model.Board;
+import com.world.hanle.services.model.GenericModel;
 
 @Configuration
 @Profile("default")
@@ -40,7 +41,7 @@ public class LocalDataSourceConfiguration   {
     public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean( DataSource dataSource  ) throws Exception {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource( dataSource );
-        em.setPackagesToScan(Board.class.getPackage().getName());
+        em.setPackagesToScan(GenericModel.class.getPackage().getName());
         em.setPersistenceProvider(new HibernatePersistenceProvider());
         Map<String, String> p = new HashMap<String, String>();
         p.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "create");
