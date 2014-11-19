@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.PersistenceUnit;
 import javax.sql.DataSource;
 
 import org.hibernate.dialect.H2Dialect;
@@ -15,6 +16,7 @@ import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -37,7 +39,9 @@ public class LocalDataSourceConfiguration   {
                 .build();
     }
 
-    @Bean
+    @Primary
+    @Bean(name = "localEntityManager")
+    @PersistenceUnit(name = "localEntityManagerUnit")
     public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean( DataSource dataSource  ) throws Exception {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource( dataSource );

@@ -28,9 +28,8 @@ public class GenericService<T> {
 	}
 	
 	public T get(Integer id) {
-		String sql = SELECT_ALL_SQL;
-		String where= " WHERE id=:id";
-		return (T)em.createNativeQuery(sql + where, type.getClass()).setParameter("id", id).getSingleResult();
+		String where = " WHERE id=:id";
+		return (T)em.createNativeQuery(SELECT_ALL_SQL + where, type.getClass()).setParameter("id", id).getSingleResult();
 	}
 	
 	public List<T> gets() {

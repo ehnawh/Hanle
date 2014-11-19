@@ -25,9 +25,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class ServicesConfiguration {
 	public static final String UPLOADS_DIRECTORY = "/";
 
-	@Autowired
-	@Qualifier("authEntityManager")
-	EntityManagerFactory authEntityManagerFactory;
+//	@Autowired
+//	@Qualifier("authEntityManager")
+//	EntityManagerFactory authEntityManagerFactory;
 	
 	@Autowired
 	@Qualifier("localEntityManager")
@@ -37,10 +37,10 @@ public class ServicesConfiguration {
 //	@Qualifier("reposEntityManager")
 //	EntityManagerFactory reposEntityManagerFactory;
 
-	@Bean(name="authTransactionManager")
-    public PlatformTransactionManager authTransactionManager() throws Exception {
-        return new JpaTransactionManager(authEntityManagerFactory);
-    }
+//	@Bean(name="authTransactionManager")
+//    public PlatformTransactionManager authTransactionManager() throws Exception {
+//        return new JpaTransactionManager(authEntityManagerFactory);
+//    }
 	
     @Primary
     @Bean(name="localTransactionManager")

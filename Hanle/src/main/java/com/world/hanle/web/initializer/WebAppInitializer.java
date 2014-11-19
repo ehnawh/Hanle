@@ -11,6 +11,7 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.world.hanle.services.config.ServicesConfiguration;
 import com.world.hanle.web.config.WebAppConfiguration;
 
 @Order(1)
@@ -20,7 +21,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { /*ServicesConfiguration.class, WebSecurityConfiguration.class, WebSocketConfiguration.class*/ };
+		return new Class<?>[] { ServicesConfiguration.class/*, WebSecurityConfiguration.class, WebSocketConfiguration.class*/ };
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 		characterEncodingFilter.setEncoding("UTF-8");
 		characterEncodingFilter.setForceEncoding(true);
-		return new Filter[] { /*new OpenEntityManagerInViewFilter(),*/ new HiddenHttpMethodFilter(), characterEncodingFilter, new MultipartFilter()};
+		return new Filter[] { new OpenEntityManagerInViewFilter(), new HiddenHttpMethodFilter(), characterEncodingFilter, new MultipartFilter()};
 	}
 	
 	@Override
