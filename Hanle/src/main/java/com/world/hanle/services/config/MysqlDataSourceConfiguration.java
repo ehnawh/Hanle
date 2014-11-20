@@ -27,8 +27,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import com.world.hanle.services.model.Board;
 import com.mysql.jdbc.Driver;
 
-@Configuration
-@Profile("mysql")
+//@Configuration
+//@Profile("mysql")
 public class MysqlDataSourceConfiguration   {
 
 	@Autowired
