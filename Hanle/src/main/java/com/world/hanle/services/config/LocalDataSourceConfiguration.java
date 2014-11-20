@@ -44,6 +44,7 @@ public class LocalDataSourceConfiguration   {
     @PersistenceUnit(name = "localEntityManagerUnit")
     public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean( DataSource dataSource  ) throws Exception {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setPersistenceUnitName("localEntityManagerUnit");
         em.setDataSource( dataSource );
         em.setPackagesToScan(GenericModel.class.getPackage().getName());
         em.setPersistenceProvider(new HibernatePersistenceProvider());
@@ -59,12 +60,8 @@ public class LocalDataSourceConfiguration   {
     @Bean
     public CacheManager cacheManager() throws Exception {
         SimpleCacheManager scm = new SimpleCacheManager();
-        Cache serverCache = new ConcurrentMapCache("servers");
-        Cache projectCache = new ConcurrentMapCache("projects");
-        Cache versionCache = new ConcurrentMapCache("versions");
-        Cache projectServerCache = new ConcurrentMapCache("projectServers");
-        Cache historyServerCache = new ConcurrentMapCache("historys");
-        scm.setCaches(Arrays.asList(serverCache, projectCache, versionCache, projectServerCache, historyServerCache));
+        Cache serviceCache = new ConcurrentMapCache("services");
+        scm.setCaches(Arrays.asList(serviceCache));
         return scm;
     }
 

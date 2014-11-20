@@ -4,6 +4,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartResolver;
@@ -20,10 +21,12 @@ import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
+import com.world.hanle.services.config.ServicesConfiguration;
+
 
 @Configuration
 @EnableWebMvc
-//@Import(ServicesConfiguration.class)
+@Import(ServicesConfiguration.class)
 @ComponentScan(basePackages={"com.world.hanle.web.controller.view", "com.world.hanle.services.model"})
 //@EnableHypermediaSupport(type = { null })
 public class WebAppConfiguration extends WebMvcConfigurerAdapter {

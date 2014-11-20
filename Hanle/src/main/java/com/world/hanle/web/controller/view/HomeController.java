@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.world.hanle.services.model.Board;
-import com.world.hanle.services.service.BoardService;
 import com.world.hanle.services.service.GenericService;
 
 /**
@@ -24,8 +23,7 @@ import com.world.hanle.services.service.GenericService;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	@Autowired
-	BoardService boardService;
+	@Autowired private GenericService<Board> boardService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {

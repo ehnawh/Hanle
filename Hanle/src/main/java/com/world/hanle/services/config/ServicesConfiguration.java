@@ -15,13 +15,15 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.world.hanle.services.model.GenericModel;
+
 
 @Configuration
 @PropertySource("classpath:/config.properties")
 @EnableCaching
 @EnableTransactionManagement
-@Import({LocalDataSourceConfiguration.class, MysqlDataSourceConfiguration.class})
-@ComponentScan(basePackages = {"com.world.hanle.services.model", "com.gabia.deployment.mvc.services.service"})
+@Import({LocalDataSourceConfiguration.class/*, MysqlDataSourceConfiguration.class*/})
+@ComponentScan(basePackages = {"com.world.hanle.services.model", "com.world.hanle.services.service"})
 public class ServicesConfiguration {
 	public static final String UPLOADS_DIRECTORY = "/";
 

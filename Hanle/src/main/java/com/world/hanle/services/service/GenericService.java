@@ -1,5 +1,8 @@
 package com.world.hanle.services.service;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,32 +11,33 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-@Service
-@Transactional
-public class GenericService<T> {
+import com.world.hanle.services.model.Board;
+
+public abstract class GenericService<T> {
 
 	static private final String REGION = "services";
 	
 	@PersistenceContext(unitName = "localEntityManagerUnit")
 	private EntityManager em;
 	
-	private T type;
-	private String table = type.getClass().getSimpleName();
+    private final Class<T> clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+	public String table = clazz.getSimpleName();
 	private String SELECT_ALL_SQL = "SELECT * FROM " + this.table;
 	private String SELECT_COUNT_SQL = "SELECT count(*) FROM " + this.table;
 
 	public T add(T entity) {
+		entity.getClass().getSimpleName();
 		em.persist(entity);
 		return entity;
 	}
 	
 	public T get(Integer id) {
 		String where = " WHERE id=:id";
-		return (T)em.createNativeQuery(SELECT_ALL_SQL + where, type.getClass()).setParameter("id", id).getSingleResult();
+		return (T)em.createNativeQuery(SELECT_ALL_SQL + where, clazz).setParameter("id", id).getSingleResult();
 	}
 	
 	public List<T> gets() {
-		return em.createNativeQuery(SELECT_ALL_SQL, type.getClass()).getResultList();
+		return em.createNativeQuery(SELECT_ALL_SQL, clazz).getResultList();
 	}
 	
 	public List<T> search(String keyword, String[] keys) {
