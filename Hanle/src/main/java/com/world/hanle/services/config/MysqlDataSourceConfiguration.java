@@ -53,25 +53,25 @@ public class MysqlDataSourceConfiguration   {
         return getDataSource(user, pw, url, driverClass);
     }
 
-    @Primary
-    @Bean(name = "localEntityManager")
-    @PersistenceUnit(name = "localEntityManagerUnit")
-    public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() throws Exception {
-        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setPersistenceUnitName("localEntityManagerUnit");
-        em.setDataSource( localDataSource );
-        em.setPackagesToScan(Board.class.getPackage().getName());
-        em.setPersistenceProvider(new HibernatePersistenceProvider());
-        Map<String, String> p = new HashMap<String, String>();
-        p.put(org.hibernate.cfg.Environment.DEFAULT_BATCH_FETCH_SIZE, "8"); // 4, 8, 16
-        p.put(org.hibernate.cfg.Environment.SHOW_SQL, "false");
-        p.put(org.hibernate.cfg.Environment.FORMAT_SQL, "false");
-        p.put(org.hibernate.cfg.Environment.POOL_SIZE, "30");
-        p.put(org.hibernate.cfg.Environment.AUTOCOMMIT, "false");
-        p.put(org.hibernate.cfg.Environment.DIALECT, MySQL5Dialect.class.getName());
-        em.setJpaPropertyMap(p);
-        return em;
-    }
+//    @Primary
+//    @Bean(name = "localEntityManager")
+//    @PersistenceUnit(name = "localEntityManagerUnit")
+//    public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() throws Exception {
+//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+//        em.setPersistenceUnitName("localEntityManagerUnit");
+//        em.setDataSource( localDataSource );
+//        em.setPackagesToScan(Board.class.getPackage().getName());
+//        em.setPersistenceProvider(new HibernatePersistenceProvider());
+//        Map<String, String> p = new HashMap<String, String>();
+//        p.put(org.hibernate.cfg.Environment.DEFAULT_BATCH_FETCH_SIZE, "8"); // 4, 8, 16
+//        p.put(org.hibernate.cfg.Environment.SHOW_SQL, "false");
+//        p.put(org.hibernate.cfg.Environment.FORMAT_SQL, "false");
+//        p.put(org.hibernate.cfg.Environment.POOL_SIZE, "30");
+//        p.put(org.hibernate.cfg.Environment.AUTOCOMMIT, "false");
+//        p.put(org.hibernate.cfg.Environment.DIALECT, MySQL5Dialect.class.getName());
+//        em.setJpaPropertyMap(p);
+//        return em;
+//    }
     
     @Bean(name="authDatasource")
     public DataSource authDataSource( Environment environment ) throws Exception {
