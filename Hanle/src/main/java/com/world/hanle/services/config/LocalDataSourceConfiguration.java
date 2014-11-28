@@ -23,7 +23,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
-import com.world.hanle.services.model.Board;
 import com.world.hanle.services.model.GenericModel;
 
 @Configuration

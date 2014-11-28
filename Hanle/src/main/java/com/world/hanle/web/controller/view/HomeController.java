@@ -1,10 +1,14 @@
 package com.world.hanle.web.controller.view;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
+import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.world.hanle.services.model.Board;
+import com.world.hanle.services.model.Content;
+import com.world.hanle.services.service.BoardService;
 import com.world.hanle.services.service.GenericService;
 
 /**
@@ -23,7 +29,7 @@ import com.world.hanle.services.service.GenericService;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	@Autowired private GenericService<Board> boardService;
+	@Autowired private BoardService boardService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {

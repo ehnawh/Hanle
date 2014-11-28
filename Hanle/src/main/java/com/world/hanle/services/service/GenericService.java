@@ -1,24 +1,17 @@
 package com.world.hanle.services.service;
 
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Service;
-
-import com.world.hanle.services.model.Board;
 
 public abstract class GenericService<T> {
 
 	static private final String REGION = "services";
 	
 	@PersistenceContext(unitName = "localEntityManagerUnit")
-	private EntityManager em;
+	protected EntityManager em;
 	
     private final Class<T> clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	public String table = clazz.getSimpleName();
@@ -45,7 +38,7 @@ public abstract class GenericService<T> {
 		String where = " WHERE ";
 		if(keys.length == 0) keys = new String[]{"name"};
 		for (int i=0; i<keys.length; i++) {
-			if(i!=0) where += " AND ";
+			if(i !=0 ) where += " AND ";
 			where += "LOWER(" + keys[i] + ") LIKE :keyword";
 		}
 		return em.createNativeQuery(SELECT_ALL_SQL + where).setParameter("keyword", sqlKeyword).getResultList();

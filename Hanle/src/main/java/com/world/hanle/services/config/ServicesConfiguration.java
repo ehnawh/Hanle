@@ -15,8 +15,6 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.world.hanle.services.model.GenericModel;
-
 
 @Configuration
 @PropertySource("classpath:/config.properties")

@@ -1,20 +1,23 @@
 package com.world.hanle.services.model;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Content extends GenericModel {
 
-	private String title;
-	private String contents;
+	private static final long serialVersionUID = 1L;
+
+	@NotNull
 	private String boardId;
-	private User author;
-	
-	public String getTitle() {
-		return title;
+	private String contents;
+//	private User author;
+
+	public String getBoardId() {
+		return boardId;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBoardId(String boardId) {
+		this.boardId = boardId;
 	}
 	public String getContents() {
 		return contents;
@@ -22,16 +25,10 @@ public class Content extends GenericModel {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public String getBoardId() {
-		return boardId;
-	}
-	public void setBoardId(String boardId) {
-		this.boardId = boardId;
-	}
-	public User getAuthor() {
-		return author;
-	}
-	public void setAuthor(User author) {
-		this.author = author;
-	}
+//	public User getAuthor() {
+//		return author;
+//	}
+//	public void setAuthor(User author) {
+//		this.author = author;
+//	}
 }
