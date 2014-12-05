@@ -19,7 +19,6 @@ public abstract class GenericService<T> {
 	private String SELECT_COUNT_SQL = "SELECT count(*) FROM " + this.table;
 
 	public T add(T entity) {
-		entity.getClass().getSimpleName();
 		em.persist(entity);
 		return entity;
 	}

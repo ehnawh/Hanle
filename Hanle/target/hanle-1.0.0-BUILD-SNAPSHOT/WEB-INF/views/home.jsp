@@ -5,5 +5,8 @@
 	<p>  The time on the server is ${serverTime}. </p>
 	<c:forEach items="${boards}" var="board">
 		<p> ${board.name}</p>
+		<c:forEach items="${board.contents}" var="content">
+			<p> ${content.name} : ${content.contents}</p>
+		</c:forEach>
 	</c:forEach>
 </div>

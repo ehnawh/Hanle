@@ -1,6 +1,11 @@
 package com.world.hanle.services.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class User extends GenericModel {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String password;
 	private String nickname;
