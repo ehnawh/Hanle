@@ -52,6 +52,9 @@ public class LocalDataSourceConfiguration   {
         p.put(org.hibernate.cfg.Environment.HBM2DDL_IMPORT_FILES, "import_h2.sql");
         p.put(org.hibernate.cfg.Environment.DIALECT, H2Dialect.class.getName());
         p.put(org.hibernate.cfg.Environment.SHOW_SQL, "true");
+        p.put("hibernate.connection.Charset", "utf8");
+        p.put("hibernate.connection.characterEncoding", "utf8");
+        p.put("hibernate.connection.useUnicode", "true");
         em.setJpaPropertyMap(p);
         return em;
     }

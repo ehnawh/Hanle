@@ -1,6 +1,6 @@
-INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('ê³µì§€ì‚¬í•­', NOW(), NOW());
-INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('ììœ ê²Œì‹œíŒ', NOW(), NOW());
-INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('ìë£Œì‹¤', NOW(), NOW());
-INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('ê³µìœ ê²Œì‹œíŒ', NOW(), NOW());
+INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('°øÁö»çÇ×', NOW(), NOW());
+INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('ÀÚÀ¯°Ô½ÃÆÇ', NOW(), NOW());
+INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('ÀÚ·á½Ç', NOW(), NOW());
+INSERT INTO Board(name, createdDate, modifiedDate) VALUES ('¹®ÀÇ°Ô½ÃÆÇ', NOW(), NOW());
 
-INSERT INTO Content(name, createdDate, modifiedDate, boardId, contents) VALUES ('ê³µì§€ì‚¬í•­ ê¸€1', NOW(), NOW(), 1, '1234');
+INSERT INTO Content(name, createdDate, modifiedDate, boardId, contents) VALUES ('abcde`1', NOW(), NOW(), 1, '1234');
