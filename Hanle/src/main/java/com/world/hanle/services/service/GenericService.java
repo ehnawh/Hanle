@@ -32,6 +32,11 @@ public abstract class GenericService<T> {
 		return em.createNativeQuery(SELECT_ALL_SQL, clazz).getResultList();
 	}
 	
+	public List<T> getsByParent(Integer parentId, String parentName) {
+		String where = " WHERE " + parentName + "Id=:" + parentName + "Id";
+		return em.createNativeQuery(SELECT_ALL_SQL + where, clazz).setParameter(parentName+"Id", parentId).getResultList();
+	}
+	
 	public List<T> search(String keyword, String[] keys) {
 		String sqlKeyword = ("%" + keyword + "%").toLowerCase();
 		String where = " WHERE ";
