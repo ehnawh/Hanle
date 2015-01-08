@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.world.hanle.services.model.Board;
 import com.world.hanle.services.service.BoardService;
+import com.world.hanle.services.service.MenuService;
 
 /**
  * Handles requests for the application home page.
@@ -24,6 +25,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired private BoardService boardService;
+	@Autowired private MenuService menuService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -40,6 +42,7 @@ public class HomeController {
 			System.out.println(board.getName());
 		}
 		model.addAttribute("boards", boardService.gets());
+		model.addAttribute("menus", menuService.gets());
 		
 		return "home";
 	}

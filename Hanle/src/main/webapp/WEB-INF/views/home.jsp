@@ -9,4 +9,8 @@
 			<p> ${content.name} : ${content.contents}</p>
 		</c:forEach>
 	</c:forEach>
+	<br/>
+	<c:forEach items="${menus}" var="menu">
+		 <p> ${menu.name}</p>
+	</c:forEach>
 </div>
