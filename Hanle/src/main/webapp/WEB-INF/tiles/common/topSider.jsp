@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="sidebar-top" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -40,6 +41,9 @@
                 <li>
                 	<a href="/board">Boards</a>
                 </li>
+                <c:forEach items="${menus}" var="menu">
+				<li><a href="#">${menu.name}</a></li>
+				</c:forEach>
             </ul>
             <form class="navbar-form navbar-left" role="search">
             	<div class="form-group">

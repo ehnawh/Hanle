@@ -42,7 +42,7 @@ public class HomeController {
 			System.out.println(board.getName());
 		}
 		model.addAttribute("boards", boardService.gets());
-		model.addAttribute("menus", menuService.gets());
+		model.addAttribute("menus", menuService.getsByParent(0, "parent"));
 		
 		return "home";
 	}
