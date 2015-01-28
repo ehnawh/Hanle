@@ -51,31 +51,6 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
 		return tilesConfigurer;
 	}
 	
-//	@Bean
-//	public ServletContextTemplateResolver templateResolver() {
-//		ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
-//		resolver.setPrefix("/WEB-INF/views/");
-//		resolver.setSuffix(".jsp");
-//		resolver.setTemplateMode("HTML5");
-//		resolver.setCacheable(false);
-//		return resolver;
-//	}
-//	
-//	@Bean
-//	public ThymeleafViewResolver thymeleafViewResolver() {
-//		ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
-//		thymeleafViewResolver.setOrder(1);
-//		thymeleafViewResolver.setViewNames(new String[]{"*"});
-//		thymeleafViewResolver.setCache(false);
-//		
-//		SpringTemplateEngine springTemplateEngine =  new SpringTemplateEngine();
-//		springTemplateEngine.setTemplateResolver(templateResolver());
-//		thymeleafViewResolver.setTemplateEngine(springTemplateEngine);
-//		
-//		return thymeleafViewResolver;
-//	}
-	
-	
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
